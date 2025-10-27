@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Mood Button</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="title">Mood Button</h1>
+      <p class="subtitle">Click to set today’s vibe.</p>
+
+      <div class="card" role="region" aria-labelledby="moodLabel">
+        <div id="moodDisplay" class="mood" aria-live="polite">
+          🤔 Not sure yet...
+        </div>
+        <button id="moodBtn" class="btn" aria-describedby="moodHelp">
+          Press for today’s mood
+        </button>
+        <p id="moodHelp" class="help">Tip: press <kbd>Space</kbd> to generate a random mood.</p>
+      </div>
+
+      <footer class="footer">
+        <small>Goofy factor 100. Aura +99. XP +15</small>
+      </footer>
+    </main>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
