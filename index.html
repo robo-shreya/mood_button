@@ -1,13 +1,24 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mood Button</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <main class="container">
       <h1 class="title">Mood Button</h1>
-      <p class="subtitle">Click to set today’s vibe.</p>
+      <p class="subtitle">Pick a category, then press the button (or <kbd>Space</kbd>).</p>
+
+      <!-- Tabs -->
+      <nav class="tabs" role="tablist" aria-label="Mood categories">
+        <button class="tab" role="tab" aria-selected="true" data-cat="All">All</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="Calm">Calm</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="Hype">Hype</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="Focus">Focus</button>
+      </nav>
 
       <div class="card" role="region" aria-labelledby="moodLabel">
         <div id="moodDisplay" class="mood" aria-live="polite">
@@ -16,14 +27,32 @@
         <button id="moodBtn" class="btn" aria-describedby="moodHelp">
           Press for today’s mood
         </button>
-        <p id="moodHelp" class="help">Tip: press <kbd>Space</kbd> to generate a random mood.</p>
+        <p id="moodHelp" class="help">
+          Tip: <kbd>1–4</kbd> switch tabs • <kbd>←</kbd>/<kbd>→</kbd> cycle • <kbd>Space</kbd> randomize • Click mood to copy
+        </p>
+
+        <!-- Add Mood UI -->
+        <section class="add-wrap" aria-labelledby="addLabel">
+          <h2 id="addLabel" class="sr-only">Add a custom mood</h2>
+          <label class="add-label">
+            Add mood to <strong id="catName">All</strong>
+          </label>
+          <div class="add-row">
+            <input id="newMood" type="text" maxlength="120" placeholder="e.g., 🦋 hopeful gremlin" />
+            <button id="addBtn" class="btn small">+ Add</button>
+          </div>
+          <p id="addHelp" class="help">Enter to add • Esc to clear • “All” is view-only (pick a tab to add)</p>
+
+          <ul id="customList" class="custom-list" aria-live="polite" aria-label="Your custom moods"></ul>
+        </section>
       </div>
 
       <footer class="footer">
-        <small>Goofy factor 100. Aura +99. XP +15</small>
+        <small>v3 (+ custom moods)</small>
       </footer>
     </main>
 
     <script src="./script.js" defer></script>
   </body>
 </html>
+
